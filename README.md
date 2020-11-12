@@ -122,5 +122,27 @@ For basic build environment:
 For browsers, install firefox or chromium. If you prefer, download chrome browser directly from Google website:
     
     apt install firefox-esr chromium
+    
+9) VIRTUAL MACHINE
+
+For the occasions that you have to use Windows, install qemu and virt-manager:
+
+    sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virtinst libvirt-daemon virt-manager
+    sudo systemctl status libvirtd.service
+    sudo virsh net-list --all
+    sudo virsh net-start default
+    sudo virsh net-autostart default
+    sudo modprobe vhost_net
+    echo "vhost_net" | sudo  tee -a /etc/modules
+        vhost_net
+    lsmod | grep vhost
+        vhost_net              24576  0
+        vhost                  49152  1 vhost_net
+        tap                    28672  1 vhost_net
+        tun                    49152  2 vhost_net
+    sudo adduser $USER libvirt
+    sudo adduser $USER libvirt-qemu
+    newgrp libvirt
+    newgrp libvirt-qemu
 
 Why the trouble? You have the control and can decide what you want and don't want.
