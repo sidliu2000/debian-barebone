@@ -87,5 +87,40 @@ Because of "No Recommended" packages, meta package lxde only installs the depend
 
 Now I got a fully functional, themed desktop environment, with 180MB memory and 1.2GB disk size, yay!
 
+5) OFFICE - optional
 
+For pdf and doc:
+
+    apt install evince libreoffice
  
+6) LOCALE - optional
+
+For additional languages you might use, install them. I use simplified chinese fcitx input method, with google pinyin. 
+
+Reconfigure the locales to include zh_CN.UTF-8 UTF-8:
+
+    dpkg-reconfigure locales
+
+Install fcitx:
+
+    apt install im-config fcitx fcitx-config-gtk fcitx-googlepinyin fcitx-modules fcitx-module-dbus fcitx-module-x11 fcitx-ui-classic
+
+Run im-config to select fcitx, then reboot or logout for it to become effective: 
+
+    im-config
+
+Run fcitx configuration from Preferences, then add Google Pinyin. You will have a keyboard icon now on the panel to switch between English and Chinese input. 
+
+7) PROGRAMMING - optional
+
+For basic build environment:
+
+    apt install build-essential git maven nodejs npm
+
+8) BROWSERS - optional
+
+For browsers, install firefox or chromium. If you prefer, download chrome browser directly from Google website:
+    
+    apt install firefox-esr chromium
+
+Why the trouble? You have the control and can decide what you want and don't want.
