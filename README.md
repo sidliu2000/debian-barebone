@@ -6,24 +6,86 @@ My preference of a linux desktop is to be as barebone as possible, easy to exten
 
 It documents how I install minimum packages. Many of these are taken from various google sources but I need a single place to track end to end steps and packages.
 
-1) Base
+1) BASE
 
-For debian base (buster) installation, I use debian-10.6.0-amd64-netinst-firmware.iso. Using text based installer to go through the whole installation process, without selecting any meta packages, yea, NONE. After installation, add contrib non-free to /etc/apt/sources.list file. Generally I prefer vendor supplied drivers such as nvidia's. Disable recommended packages for apt by creating /etc/apt/apt.conf.d/99_norecommends file:
+For debian base (buster) installation, I use debian-10.6.0-amd64-netinst-firmware.iso. Using text based installer to go through the whole installation process, without selecting any meta packages, yea, NONE. 
+
+Install some handy optional packages, install os-prober if you dual boot Windows, add yourself to the sudoer list:
+ 
+    apt install sudo lshw ssh os-prober
+    usermod -aG sudo [your username]
+ 
+Check linux kernel and keep the latest version (in this case, it is 4.19.0-12-amd64):
+
+    uname -a
+    apt list linux-image* --installed
+    apt-get purge linux-image-4.19.0-11-amd64
+
+After installation, add contrib non-free to /etc/apt/sources.list file. Generally I prefer vendor supplied drivers such as nvidia's. Disable recommended packages for apt by creating /etc/apt/apt.conf.d/99_norecommends file:
 
     APT::Install-Recommends "false";
     APT::AutoRemove::RecommendsImportant "false";
     APT::AutoRemove::SuggestsImportant "false";
 
-Install some handy optional packages, install os-prober if you dual boot Windows, check linux kernel and keep the latest version:
-
-    apt install sudo lshw ssh os-prober
-    apt list linux-image* --installed
-
-After this, run the following to update and remove even more package. At this point, there are less than 200 packages installed, see apt-base.txt.
+After this, run the following to update and remove even more package. At this point, there are 208 packages installed, about 800MB in disk size, see apt-base.txt.
 
     apt update; apt upgrade; apt autoremove
  
+2) NETWORK
+
+If network card is recognize, to connect to wifi:
+
+    ip a
+    iw dev
+    ip link set wlp2s0 up
+    iwlist scan
+
+Add wifi to /etc/network/interfaces. This will work for most commonly WPA/WPA2 networks:
+
+    allow-hotplug wlp3s0
+    iface wlp3s0 inet dhcp
+        wpa-ssid ESSID
+        wpa-psk PASSWORD
+
+Bring up your interface and verify the connection:
+
+    ifup wlp3s0
+    iw wlp3s0 link
+    ip a
+
+If network card is not recognize, you will need to go through more steps. I will not cover here.
+
+3) XORG
+
+I use debian as my desktop, X11 is needed. 
+
+Xorg core -- Installing the void input driver and dummy video driver prevents APT installing all available drivers soyou can install only the drivers you need.
+
+    apt install xserver-xorg-core xserver-xorg-video-dummy xserver-xorg-input-void xinit x11-xserver-utils
+
+Video drivers -- Install your video driver. Install vesa for fallback, qxl if you use qemu virtual machine.
+
+    apt install xserver-xorg-video-intel xserver-xorg-video-vesa xserver-xorg-video-qxl
+
+Input drivers -- keyboard, mouse, touchpad, etc.
+
+    apt install xserver-xorg-input-evdev xserver-xorg-input-libinput xserver-xorg-input-mouse xserver-xorg-input-kbd xserver-xorg-input-synaptics
+
+Install fonts -- 
+
+    apt-get install xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable
+    
+4) DESKTOP
+
+Desktop environment is obviously very personal. I use many over the years, gnome, xfce4, icewm, openbox, fluxbox, lxde. The current lxde based on openbox is actually quite small and fast, consume very little resources. Apps are modular, meaning you can add/delete/change if you don't like any of it. With the right theme (Arc-Theme), lxde can look quite modern. And did I mention it is lightning fast? 
+
+    apt install lxde
+
+Because of "No Recommended" packages, meta package lxde only installs the dependencies which include a terminal, file manager, an 4 very lightweight accessories calculator, image viewer, text editor, xarchiver. Reboot into a full desktop environment. If you need other apps, such as volume and power controls, themes, network manager, install them manually.
+
+    apt install arc-theme wicd lxtask lightdm-gtk-greeter-settings xfce4-power-manager alsa-utils
+
+Now I got a fully functional, themed desktop environment, with 180MB memory and 1.2GB disk size, yay!
 
 
-
-
+ 
