@@ -1,6 +1,6 @@
 # debian-barebone
 
-A simple page to keep track of the changes to install Debian as barebone as possible.
+A simple page to keep track of the changes to install Debian as minimal and barebone as possible.
 
 My preference of a linux desktop is to be as barebone as possible, easy to extend if needed, and know what I install, and be able to serve ALL of my daily needs, which are mostly programming and office documents related activities. I have been a linux user for many years and gone through quite a few distros including red hat, fedora, ubuntu, lubuntu, xubuntu, debian, slax, dsl, tiny core, etc, just to name a few. In recent years, I found myself using debian-based distro more and more. It is small and fast, but not so small and different to a point where it is hard to add things if I need to, like some of the really lightweight distro.
 
