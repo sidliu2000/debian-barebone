@@ -73,7 +73,7 @@ Input drivers -- keyboard, mouse, touchpad, etc.
 
 Install fonts -- 
 
-    apt-get install xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable
+    apt install xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable
     
 4) DESKTOP
 
