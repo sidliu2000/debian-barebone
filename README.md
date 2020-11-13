@@ -81,7 +81,7 @@ Desktop environment is obviously very personal. I use many over the years, gnome
 
     apt install lxde
 
-Because of "No Recommended" packages, meta package lxde only installs the dependencies which include a terminal, file manager, an 4 very lightweight accessories calculator, image viewer, text editor, xarchiver. Reboot into a full desktop environment. If you need other apps, such as volume and power controls, themes, network manager, install them manually.
+Because of "No Recommended" packages, meta package lxde only installs the dependencies which include a terminal, file manager, and 4 very lightweight accessories calculator, image viewer, text editor, xarchiver. Reboot into a full desktop environment. If you need other apps, such as volume and power controls, themes, network manager, install them manually.
 
     apt install arc-theme wicd lxtask lightdm-gtk-greeter-settings xfce4-power-manager alsa-utils
 
