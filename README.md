@@ -127,7 +127,7 @@ For browsers, install firefox or chromium. If you prefer, download chrome browse
 
 For the occasions that you have to use Windows, install qemu and virt-manager:
 
-    sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virtinst libvirt-daemon virt-manager
+    sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virtinst libvirt-daemon virt-manager dnsmasq
     sudo systemctl status libvirtd.service
     sudo virsh net-list --all
     sudo virsh net-start default
@@ -148,5 +148,7 @@ For the occasions that you have to use Windows, install qemu and virt-manager:
 That's all folks! 
 
 Why the trouble? You have the control and can decide what you want and don't want.
+
+Maybe I will write samba, gvfs, mount internal disk, etc?
 
 I want to give a special mention to slax (slax.org) because it might be my next debian-based barebone desktop. It has a lot of potentials as a live OS or regular desktop, with no installation needed. I feel that currently there are some kinks such as slower boot up (perhaps due to some jobs and auto scan/mount file systems) and slight delay of xlunch. 
