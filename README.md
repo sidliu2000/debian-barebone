@@ -153,6 +153,6 @@ That's all folks!
 
 Why the trouble? You have the control and can decide what you want and don't want.
 
-Maybe I will write samba, gvfs, mount internal disk, etc?
+Maybe I will write samba, gvfs, mount internal disk by uuid, zram swap, etc?
 
 I want to give a special mention to slax (slax.org) because it might be my next debian-based barebone desktop. It has a lot of potentials as a live OS or regular desktop, with no installation needed. I feel that currently there are some kinks such as slower boot up (perhaps due to some jobs and auto scan/mount file systems) and slight delay of xlunch. 
