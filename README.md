@@ -111,6 +111,10 @@ Run im-config to select fcitx, then reboot or logout for it to become effective:
 
 Run fcitx configuration from Preferences, then add Google Pinyin. You will have a keyboard icon now on the panel to switch between English and Chinese input. 
 
+Lastly don't forget to install your preferred fonts. I use fonts-noto-cjk for the sake of simplicity.
+
+    apt install fonts-noto-cjk
+    
 7) PROGRAMMING - optional
 
 For basic build environment:
