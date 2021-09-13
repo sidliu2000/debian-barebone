@@ -131,11 +131,11 @@ For browsers, install firefox or chromium. If you prefer, download chrome browse
 
 For the occasions that you have to use Windows, install qemu and virt-manager:
 
-    sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virtinst libvirt-daemon virt-manager qemu-system-gui dnsmasq gir1.2-spiceclientgtk-3.0
+    sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virtinst libvirt-daemon virt-manager qemu-system-gui dnsmasq
     sudo systemctl status libvirtd.service
     sudo virsh net-list --all
     sudo virsh net-start default
-    sudo virsh net-autostart default
+    #sudo virsh net-autostart default
     sudo modprobe vhost_net
     echo "vhost_net" | sudo  tee -a /etc/modules
         vhost_net
