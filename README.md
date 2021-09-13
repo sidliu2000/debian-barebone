@@ -138,12 +138,12 @@ For the occasions that you have to use Windows, install qemu and virt-manager:
     #sudo virsh net-autostart default
     sudo modprobe vhost_net
     echo "vhost_net" | sudo  tee -a /etc/modules
-        vhost_net
+    #    vhost_net
     lsmod | grep vhost
-        vhost_net              24576  0
-        vhost                  49152  1 vhost_net
-        tap                    28672  1 vhost_net
-        tun                    49152  2 vhost_net
+    #    vhost_net              24576  0
+    #    vhost                  49152  1 vhost_net
+    #    tap                    28672  1 vhost_net
+    #    tun                    49152  2 vhost_net
     sudo adduser $USER libvirt
     sudo adduser $USER libvirt-qemu
     newgrp libvirt
