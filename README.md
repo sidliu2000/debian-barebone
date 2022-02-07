@@ -150,6 +150,7 @@ For the occasions that you have to use Windows, install qemu and virt-manager:
     newgrp libvirt-qemu
 
 If you want to run qemu directly without virt-manager as non-root user, ensure: 
+
     sudo usermod -aG kvm $USER
     ls -ld /dev/kvm
     #crw-rw---- 1 root kvm 10, 232 May 27 10:43 /dev/kvm
